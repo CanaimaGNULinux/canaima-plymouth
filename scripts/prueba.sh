@@ -6,5 +6,11 @@ fi
 
 sudo cp * /usr/share/plymouth/themes/canaima-plymouth/
 sudo plymouth-set-default-theme canaima-plymouth
-sudo plymouthd --debug --debug-file=/tmp/plymouth-debug-out ; sudo plymouth --show-splash ; for ((I=0;I<10;I++)); do sleep 5 ; sudo plymouth --update=event$I ; done ; sudo plymouth --quit
+sudo plymouthd --debug --debug-file=/tmp/plymouth-debug-out 
+sudo plymouth --show-splash 
+for ((I=0;I<10;I++))
+do sleep 5 
+	plymouth --update=event$I 
+done 
+plymouth --quit
 
