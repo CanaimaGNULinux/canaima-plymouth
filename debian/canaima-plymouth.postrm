@@ -26,8 +26,8 @@ case "$1" in
 		sed -i 's/^FRAMEBUFFER=y$//g'
         fi
 
-        # Se establece como tema a canaima-plymouth.
-        plymouth-set-default-theme canaima-plymouth
+        # Se establece como tema a solar
+        plymouth-set-default-theme solar
 
         # Se actualiza el archivo de inicializacion que se ejecuta al iniciar el equipo.
         update-initramfs -u
@@ -35,7 +35,7 @@ case "$1" in
     ;;
 
     *)
-        echo "postrm called with unknown argument \`$1'" >&2
+        echo "postrm con argumento desconocido \`$1'" >&2
         exit 1
     ;;
 esac

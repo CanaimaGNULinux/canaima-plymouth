@@ -1,5 +1,11 @@
-canaima-plymouth (1.0+0) stable; urgency=low
+canaima-plymouth (1.0+1) stable; urgency=low
 
+  [ Carlos Guerrero ]
   * Version inicial
+  * [9919e68] Acciones de postinstalacion, adaptandolo segun sea el
+    fabricante de la VGA
 
- -- Carlos Guerrero <carlos@carlosguerrero.com>  Fri, 27 Aug 2010 11:10:56 -0430
+  [ Diego Alberto Aguilera Zambrano ]
+  * [5cbb653] Se modificó el script de postrm
+
+ -- Carlos Alejandro Guerrero Mora <cguerrero@cnti.gob.ve>  Fri, 27 Aug 2010 15:03:12 -0430
