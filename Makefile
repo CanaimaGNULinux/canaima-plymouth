@@ -39,11 +39,11 @@ build:
 	@echo "Nada para compilar!"
 
 install:
-	# Installing shared data
+	# Instalando tema grafico
 	mkdir -p $(DESTDIR)/usr/share/plymouth/themes/canaima-plymouth/
 	cp img/* scripts/canaima-plymouth.plymouth scripts/canaima-plymouth.script $(DESTDIR)/usr/share/plymouth/themes/canaima-plymouth/
 
-	# Installing documentation
+	# Instalando documentacion
 	mkdir -p $(DESTDIR)/usr/share/doc/canaima-plymouth/
 	cp COPYING AUTHORS CREDITS README $(DESTDIR)/usr/share/doc/canaima-plymouth/
 

@@ -28,11 +28,22 @@ de todos los componentes en cada etapa [boot/shutdown] y la animación.
 
 Para instalarlo basta con ejecutar en una consola con permisos de root:
 
-make install
+	make install
 
-== Empaquetamiento ==
+Revisar los temas graficos ahora instalados:
 
-Por hacer
+	plymouth-set-default-theme -l
+
+debe salir "canaima-plymouth" en la lista, para establecer 
+el tema grafico a canaima-plymouth:
+
+	plymouth-set-default-theme canaima-plymouth
+
+y para aplicar estos cambios y hacerlos efectivos al arranque:
+
+	update-initramfs -u
+
+O alternativamente puedes instalar el paquete "canaima-plymouth"
 
 [1] http://www.freedesktop.org/wiki/Software/Plymouth
 [2] http://www.freedesktop.org/wiki/Software/Plymouth/Scripts
