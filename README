@@ -1,0 +1,38 @@
+Canaima-plymouth es un tema grafico que se muestra al iniciar y cerrar Canaima GNU/Linux.
+
+Utiliza Plymouth [1], que permite gran variedad de opciones y libertad gráfica.
+
+== Descripción ==
+
+Se copia todo el contenido de las carpetas img/ y scripts/ (excepto prueba.sh) a
+una nueva carpeta:
+
+	/usr/share/plymouth/themes/canaima-plymouth
+
+en ella existe un archivo canaima-plymouth.plymouth que define la descripcion y los
+valores principales como son:
+	
+	ModuleName=script 
+	# Define que el tema se basa en un script.
+
+	ImageDir=/usr/share/plymouth/themes/canaima-plymouth
+	# Define en que carpeta se encuentran las imagenes que llamará el script durante su ejecución.
+
+	ScriptFile=/usr/share/plymouth/themes/canaima-plymouth/canaima-plymouth.script 
+	# Define exactamente donde se encuentra dicho script.
+
+Este último tiene un propio lenguaje establecido por Plymouth [2], en él se define la forma, posicion y color
+de todos los componentes en cada etapa [boot/shutdown] y la animación.
+
+== Instalación ==
+
+Para instalarlo basta con ejecutar en una consola con permisos de root:
+
+make install
+
+== Empaquetamiento ==
+
+Por hacer
+
+[1] http://www.freedesktop.org/wiki/Software/Plymouth
+[2] http://www.freedesktop.org/wiki/Software/Plymouth/Scripts
