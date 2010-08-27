@@ -9,18 +9,18 @@ case "$1" in
     configure)
 	# Segun sea la marca de la tarjeta de video, se deben cargar diferentes modulos 
 	# mediante el archivo /etc/initramfs-tools/modules.
-	if `lspci | grep VGA` = *nVidia*
+	if [ $"eval lspci | grep VGA" = *nVidia* ]
 	then 
 		echo "drm" >> /etc/initramfs-tools/modules
 		echo "nouveau modeset=1" >> /etc/initramfs-tools/modules
 	fi
-	if `lspci | grep VGA` = *Intel*
+	if [ $"eval lspci | grep VGA" = *Intel* ]
 	then 
 		echo "intel_agp" >> /etc/initramfs-tools/modules
 		echo "drm" >> /etc/initramfs-tools/modules
 		echo "i915 modeset=1" >> /etc/initramfs-tools/modules
 	fi
-	if `lspci | grep VGA` = *ATI*
+	if [ $"eval lspci | grep VGA" = *ATI* ]
 	then 
 		echo "uvesafb mode_option=800x600 mtrr=3 scroll=ywrap" >> /etc/initramfs-tools/modules
 		echo FRAMEBUFFER=y | sudo tee /etc/initramfs-tools/conf.d/splash 
