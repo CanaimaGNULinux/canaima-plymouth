@@ -9,31 +9,39 @@ case "$1" in
     purge|remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
         # Segun sea la marca de la tarjeta de video, se deben cargar diferentes modulos
         # mediante el archivo /etc/initramfs-tools/modules.
-
-        if lspci | grep VGA | grep -i '\<nvidia\>' 1>/dev/null
+	echo "1"
+        if lspci | grep VGA | grep -i '\<nvidia\>'
         then
 		sed -i 's/^drm$//g' /etc/initramfs-tools/modules
-		sed -i 's/^nouveau modeset=1$//g ' /etc/initramfs-tools/modules
+		sed -i 's/^nouveau modeset=1$//g' /etc/initramfs-tools/modules
         fi
-        if lspci | grep VGA | grep -i '\<intel\>' 1>/dev/null
+
+	echo "2"
+        if lspci | grep VGA | grep -i '\<intel\>'
         then
 		sed -i 's/^intel_agp$//g' /etc/initramfs-tools/modules
-                sed -i 's/^drm$//g' /etc/initramfs-tools/modules
+		sed -i 's/^drm$//g' /etc/initramfs-tools/modules
 		sed -i 's/^i915 modeset=1$//g' /etc/initramfs-tools/modules
         fi
         
-        if lspci | grep VGA | grep -i '\<ati\>' 1>/dev/null
+	echo "3"
+        if lspci | grep VGA | grep -i '\<ati\>'
         then
-		sed -i 's/^uvesafb mode_option=800x600 mtrr=3 scroll=ywrap$//g'  /etc/initramfs-tools/modules
+		sed -i 's/^uvesafb mode_option=800x600 mtrr=3 scroll=ywrap$//g' /etc/initramfs-tools/modules
 		sed -i 's/^FRAMEBUFFER=y$//g' /etc/initramfs-tools/conf.d/splash
         fi
 
-        # Se establece como tema a solar
-        plymouth-set-default-theme solar
+	echo "4"
+        # Se establece como tema a fade-in
+        grep -q '^[[]Daemon[]]' ${PLYMOUTH_CONFDIR}/plymouthd.conf 2> /null || echo '[Daemon]' >> ${PLYMOUTH_CONFDIR}/plymouthd.conf
+        sed -i -e '/^Theme[[:blank:]]*=.*/d' ${PLYMOUTH_CONFDIR}/plymouthd.conf
+        sed -i -e "s/^\([[]Daemon[]]\)\n*/\1\nTheme=fade-in/" ${PLYMOUTH_CONFDIR}/plymouthd.conf
 
+	echo "5"
         # Se actualiza el archivo de inicializacion que se ejecuta al iniciar el equipo.
         update-initramfs -u
 
+	echo "6"
     ;;
 
     *)

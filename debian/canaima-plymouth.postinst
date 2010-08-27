@@ -3,6 +3,7 @@
 #
 # see: dh_installdeb(1)
 
+PLYMOUTH_CONFDIR="/etc/plymouth/"
 set -e
 
 case "$1" in
@@ -26,9 +27,13 @@ case "$1" in
 		echo FRAMEBUFFER=y | sudo tee /etc/initramfs-tools/conf.d/splash 
 	fi
 
+	echo "1"
 	# Se establece como tema a canaima-plymouth.
-	plymouth-set-default-theme canaima-plymouth
+	grep -q '^[[]Daemon[]]' ${PLYMOUTH_CONFDIR}/plymouthd.conf 2> /null || echo '[Daemon]' >> ${PLYMOUTH_CONFDIR}/plymouthd.conf
+	sed -i -e '/^Theme[[:blank:]]*=.*/d' ${PLYMOUTH_CONFDIR}/plymouthd.conf
+	sed -i -e "s/^\([[]Daemon[]]\)\n*/\1\nTheme=canaima-plymouth/" ${PLYMOUTH_CONFDIR}/plymouthd.conf
 
+	echo "2"
 	# Se actualiza el archivo de inicializacion que se ejecuta al iniciar el equipo.
 	update-initramfs -u
     ;;
