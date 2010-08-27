@@ -1,0 +1,15 @@
+Source: canaima-plymouth
+Section: misc
+Priority: extra
+Maintainer: Carlos Guerrero <carlos@carlosguerrero.com>
+Build-Depends: cdbs, debhelper (>= 7.0.50~)
+Standards-Version: 3.8.4
+Homepage: http://canaima.softwarelibre.gob.ve/
+Vcs-Git: git://gitorious.org/canaima-gnu-linux/canaima-plymouth.git
+
+Package: canaima-plymouth
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}, plymouth
+Description: Tema Gráfico de Canaima para Plymouth
+ Tema gráfico de Canaima GNU/Linux para mostrarse al 
+ iniciar y apagar el equipo, basado en Plymouth.
