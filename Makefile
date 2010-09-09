@@ -2,7 +2,7 @@
 
 SHELL := sh -e
 
-SCRIPTS = scripts/*.sh
+#SCRIPTS = scripts/*.sh
 
 all: test build
 
