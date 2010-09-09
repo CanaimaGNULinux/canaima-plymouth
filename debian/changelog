@@ -1,9 +1,9 @@
-canaima-plymouth (1.0+1) stable; urgency=low
+canaima-plymouth (1.0+2) stable; urgency=low
 
   [ Carlos Guerrero ]
   * Version inicial
   * [9919e68] Acciones de postinstalacion, adaptandolo segun sea el
-    fabricante de la VGA
+  * Modificaciones para /etc/default/grub
 
   [ Diego Alberto Aguilera Zambrano ]
   * [5cbb653] Se modificó el script de postrm
