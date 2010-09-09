@@ -8,6 +8,4 @@ canaima-plymouth (1.0+2) stable; urgency=low
   [ Diego Alberto Aguilera Zambrano ]
   * [5cbb653] Se modificó el script de postrm
 
-  [ root ]
-
- -- Carlos Guerrero <guerrerocarlos@gmail.com>  Thu, 09 Sep 2010 17:42:51 -0430
+ -- Carlos Guerrero <guerrerocarlos@gmail.com>  Thu, 09 Sep 2010 17:50:33 -0430
