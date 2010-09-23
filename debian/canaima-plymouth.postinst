@@ -20,14 +20,7 @@ case "$1" in
                 echo "intel_agp" >> /etc/initramfs-tools/modules
                 echo "drm" >> /etc/initramfs-tools/modules
                 echo "i915 modeset=1" >> /etc/initramfs-tools/modules
-                cat /etc/default/grub | grep -v 'GRUB_GFXMODE' > /tmp/grub ; mv /tmp/grub /etc/default/grub
-                echo "GRUB_GFXMODE=1024x600" >> /etc/default/grub
-                cat /etc/default/grub | grep -v 'GRUB_DISTRIBUTOR' > /tmp/grub ; mv /tmp/grub /etc/default/grub
-                echo 'GRUB_DISTRIBUTOR="Canaima"' >> /etc/default/grub
-                cat /etc/default/grub | grep -v 'GRUB_TIMEOUT' > /tmp/grub ; mv /tmp/grub /etc/default/grub
-                echo "GRUB_TIMEOUT=5" >> /etc/default/grub
-                cat /etc/default/grub | grep -v 'GRUB_DEFAULT' > /tmp/grub ; mv /tmp/grub /etc/default/grub
-                echo "GRUB_DEFAULT=0" >> /etc/default/grub
+		cp /usr/share/canaima-plymouth/grub /etc/default/grub
 	fi
 	if lspci | grep VGA | grep -i '\<ati\>' 1>/dev/null
 	then 

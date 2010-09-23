@@ -42,7 +42,9 @@ install:
 	# Instalando tema grafico
 	mkdir -p $(DESTDIR)/usr/share/plymouth/themes/canaima-plymouth/
 	cp img/* scripts/canaima-plymouth.plymouth scripts/canaima-plymouth.script $(DESTDIR)/usr/share/plymouth/themes/canaima-plymouth/
-
+	
+	mkdir -p $(DESTDIR)/usr/share/canaima-plymouth
+	cp grub  $(DESTDIR)/usr/share/canaima-plymouth/
 	# Instalando documentacion
 	mkdir -p $(DESTDIR)/usr/share/doc/canaima-plymouth/
 	cp COPYING AUTHORS CREDITS README $(DESTDIR)/usr/share/doc/canaima-plymouth/
