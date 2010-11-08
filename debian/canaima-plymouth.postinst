@@ -20,7 +20,6 @@ case "$1" in
                 echo "intel_agp" >> /etc/initramfs-tools/modules
                 echo "drm" >> /etc/initramfs-tools/modules
                 echo "i915 modeset=1" >> /etc/initramfs-tools/modules
-		cp /usr/share/canaima-plymouth/grub /etc/default/grub
 	fi
 	if lspci | grep VGA | grep -i '\<ati\>' 1>/dev/null
 	then 
@@ -28,6 +27,13 @@ case "$1" in
 		echo FRAMEBUFFER=y | sudo tee /etc/initramfs-tools/conf.d/splash 
 	fi
 
+	# Copiar archivo /etc/default/grub en archivo de respaldo	
+	if [ -d /etc/default/grub ]; then
+		mv /etc/default/grub /etc/default/grub.bk	
+	fi
+	
+	# Copiar nuevo archivo /etc/default/grub
+	cp /usr/share/canaima-plymouth/grub /etc/default/grub
 	# Se establece como tema a canaima-plymouth.
 	grep -q '^[[]Daemon[]]' ${PLYMOUTH_CONFDIR}/plymouthd.conf 2> /null || echo '[Daemon]' >> ${PLYMOUTH_CONFDIR}/plymouthd.conf
 	sed -i -e '/^Theme[[:blank:]]*=.*/d' ${PLYMOUTH_CONFDIR}/plymouthd.conf
@@ -35,6 +41,7 @@ case "$1" in
 
 	# Se actualiza el archivo de inicializacion que se ejecuta al iniciar el equipo.
 	update-initramfs -u
+	update-grub
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
