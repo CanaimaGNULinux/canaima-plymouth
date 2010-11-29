@@ -28,7 +28,7 @@ case "$1" in
 	fi
 
 	# Copiar archivo /etc/default/grub en archivo de respaldo	
-	if [ -d /etc/default/grub ]; then
+	if [ -e /etc/default/grub ]; then
 		mv /etc/default/grub /etc/default/grub.bk	
 	fi
 	
