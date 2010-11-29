@@ -1,3 +1,10 @@
+canaima-plymouth (1.0+4) stable; urgency=low
+
+  * [a568ca1] Añadiendo condicion para verificar si /etc/default/grub
+    existe en el postrm, además corrigiendo error de sintaxis
+
+ -- Luis Alejandro Martez Faneyth <martinez.faneyth@gmail.com>  Mon, 29 Nov 2010 11:00:06 -0430
+
 canaima-plymouth (1.0+3) stable; urgency=low
 
   [ Carlos Guerrero ]
@@ -5,14 +12,14 @@ canaima-plymouth (1.0+3) stable; urgency=low
     intentando leer y escribir al mismo tiempo en el archivo al hacer
     cat y > al mismo tiempo
 
-  [ “Carlos ]
+  [ "Carlos ]
   * [f2e7308] Agregando configuracion para el grub en maquinas con VGA
     Intel
 
   [ Carlos Guerrero ]
   * [ff667ea] Correcciones de postinstalacion detectadas en pruebas
 
-  [ “Carlos ]
+  [ "Carlos ]
   * [f2e7308] Agregando configuracion para el grub en maquinas con VGA
     Intel
 
