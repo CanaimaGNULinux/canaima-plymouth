@@ -34,8 +34,8 @@ case "$1" in
         sed -i -e "s/^\([[]Daemon[]]\)\n*/\1\nTheme=fade-in/" ${PLYMOUTH_CONFDIR}/plymouthd.conf
 
 
-	# Restaurar al archivo /etc/default/grub que existÃ­a antes de la instalaciÃ
-	if [ -e /etc/default/grub ]
+	# Restaurar al archivo /etc/default/grub.bk que existía­a antes de la instalación
+	if [ -e /etc/default/grub.bk ]
 	then
 
 		mv /etc/default/grub.bk /etc/default/grub
