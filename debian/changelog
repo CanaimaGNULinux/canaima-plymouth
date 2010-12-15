@@ -1,3 +1,9 @@
+canaima-plymouth (1.0+6) stable; urgency=low
+
+  * [ef9eb76] Mejorando el postinstall
+
+ -- Luis Alejandro Martínez Faneyth <martinez.faneyth@gmail.com>  Wed, 15 Dec 2010 09:49:33 -0430
+
 canaima-plymouth (1.0+5) stable; urgency=low
 
   * [e1a5a4e] Corrigiendo el postrm
@@ -9,27 +15,18 @@ canaima-plymouth (1.0+4) stable; urgency=low
   * [a568ca1] Añadiendo condicion para verificar si /etc/default/grub
     existe en el postrm, además corrigiendo error de sintaxis
 
- -- Luis Alejandro Martez Faneyth <martinez.faneyth@gmail.com>  Mon, 29 Nov 2010 11:00:06 -0430
+ -- Luis Alejandro Martínez Faneyth <martinez.faneyth@gmail.com>  Mon, 29 Nov 2010 11:00:06 -0430
 
 canaima-plymouth (1.0+3) stable; urgency=low
 
-  [ Carlos Guerrero ]
   * [0320694] Corrigiendo postinst. El error era que se estaba
     intentando leer y escribir al mismo tiempo en el archivo al hacer
     cat y > al mismo tiempo
-
-  [ "Carlos ]
   * [f2e7308] Agregando configuracion para el grub en maquinas con VGA
     Intel
-
-  [ Carlos Guerrero ]
   * [ff667ea] Correcciones de postinstalacion detectadas en pruebas
-
-  [ "Carlos ]
   * [f2e7308] Agregando configuracion para el grub en maquinas con VGA
     Intel
-
-  [ Carlos Guerrero ]
   * [ff667ea] Correcciones de postinstalacion detectadas en pruebas
 
  -- Carlos Guerrero <wwarrior@warrioraima.proyectocanaima>  Mon, 15 Nov 2010 14:02:32 -0430
