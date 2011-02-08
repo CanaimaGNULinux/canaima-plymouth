@@ -1,3 +1,9 @@
+canaima-plymouth (1.0+7) stable; urgency=low
+
+  * [bc60efa] Añadiendo dependencia a pciutils
+
+ -- Luis Alejandro Martínez Faneyth <martinez.faneyth@gmail.com>  Tue, 08 Feb 2011 04:42:54 -0430
+
 canaima-plymouth (1.0+6) stable; urgency=low
 
   * [ef9eb76] Mejorando el postinstall
