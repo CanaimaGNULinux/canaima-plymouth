@@ -1,3 +1,9 @@
+canaima-plymouth (1.0+11) stable; urgency=low
+
+  * [58eeacf] Corrigiendo bug con update-burg
+
+ -- Luis Alejandro Martínez Faneyth <martinez.faneyth@gmail.com>  Thu, 10 Feb 2011 02:08:00 -0430
+
 canaima-plymouth (1.0+10) stable; urgency=low
 
   * [453d758] Volviendo agregar el hook de update-grub y corrigiendo bug
