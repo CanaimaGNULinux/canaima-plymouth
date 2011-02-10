@@ -2,8 +2,11 @@ canaima-plymouth (1.0+8) stable; urgency=low
 
   * [a661039] Removiendo la sustitución del grub en los scripts del
     mantenedor. Cambiando a BURG. Mejorando código en general.
+  * [0907294] Agregando pre-dependencia para el plymouth. Algunos
+    archivos ya deben estar puestos antes de ejecutar el postinst de
+    canaima-plymouth.
 
- -- Luis Alejandro Martínez Faneyth <martinez.faneyth@gmail.com>  Wed, 09 Feb 2011 22:42:19 -0430
+ -- Luis Alejandro Martínez Faneyth <martinez.faneyth@gmail.com>  Wed, 09 Feb 2011 22:45:42 -0430
 
 canaima-plymouth (1.0+7) stable; urgency=low
 
