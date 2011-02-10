@@ -1,3 +1,9 @@
+canaima-plymouth (1.0+12) stable; urgency=low
+
+  * [ac86f85] Removiendo hooks de update-burg, también pre-dependencias
+
+ -- Luis Alejandro Martínez Faneyth <martinez.faneyth@gmail.com>  Thu, 10 Feb 2011 03:37:24 -0430
+
 canaima-plymouth (1.0+11) stable; urgency=low
 
   * [58eeacf] Corrigiendo bug con update-burg
