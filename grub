@@ -1,7 +1,7 @@
 # This file is sourced by update-grub, and its variables are propagated
 # to its children in /etc/grub.d/
 GRUB_DEFAULT=0
-GRUB_TIMEOUT=5
+GRUB_TIMEOUT=3
 GRUB_DISTRIBUTOR="Canaima"
 GRUB_CMDLINE_LINUX="splash quiet vga=791"
 GRUB_GFXMODE=1024x768
