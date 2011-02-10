@@ -33,12 +33,16 @@ case "$1" in
 	sed -i -e "s/^\([[]Daemon[]]\)\n*/\1\nTheme=canaima-plymouth/" ${PLYMOUTH_CONFDIR}/plymouthd.conf
 
 	if [ -x $( which plymouth-set-default-theme ) ]; then
-		plymouth-set-default-theme canaima-plymouth
+		plymouth-set-default-theme canaima-plymouth || true
 	fi
 
 	# Se actualiza el archivo de inicializacion que se ejecuta al iniciar el equipo.
 	if [ -x $( which update-initramfs ) ]; then
 		update-initramfs -u
+	fi
+
+	if [ -x $( which update-burg ) ]; then
+		update-burg
 	fi
 
     ;;
