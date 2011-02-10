@@ -27,37 +27,22 @@ case "$1" in
 		echo FRAMEBUFFER=y | sudo tee /etc/initramfs-tools/conf.d/splash 
 	fi
 
-	# Copiar archivo /etc/default/grub en archivo de respaldo	
-	if [ -e /etc/default/grub ]; then
-		mv /etc/default/grub /etc/default/grub.bk	
-	fi
-	
-	# Copiar nuevo archivo /etc/default/grub
-	cp /usr/share/canaima-plymouth/grub /etc/default/grub
 	# Se establece como tema a canaima-plymouth.
 	grep -q '^[[]Daemon[]]' ${PLYMOUTH_CONFDIR}/plymouthd.conf 2> /null || echo '[Daemon]' >> ${PLYMOUTH_CONFDIR}/plymouthd.conf
 	sed -i -e '/^Theme[[:blank:]]*=.*/d' ${PLYMOUTH_CONFDIR}/plymouthd.conf
 	sed -i -e "s/^\([[]Daemon[]]\)\n*/\1\nTheme=canaima-plymouth/" ${PLYMOUTH_CONFDIR}/plymouthd.conf
 
-	if [ -x /usr/sbin/plymouth-set-default-theme ];
-	then
-
-		plymouth-set-default-theme canaima-plymouth || true
-
+	if [ -x $( which plymouth-set-default-theme ) ]; then
+		plymouth-set-default-theme canaima-plymouth
 	fi
 
 	# Se actualiza el archivo de inicializacion que se ejecuta al iniciar el equipo.
-	if [ -x /usr/sbin/update-initramfs ]; then
-
+	if [ -x $( which update-initramfs ) ]; then
 		update-initramfs -u
-
 	fi
 
-	if which update-grub2 > /dev/null ; then
-	sync
-
-		update-grub2 || true
-
+	if [ -x $( which update-burg ) ]; then
+		update-burg
 	fi
 
     ;;
