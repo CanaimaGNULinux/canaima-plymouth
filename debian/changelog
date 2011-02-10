@@ -1,3 +1,11 @@
+canaima-plymouth (1.0+10) stable; urgency=low
+
+  * [453d758] Volviendo agregar el hook de update-grub y corrigiendo bug
+    con el plymouth-set-default-theme
+  * [1a2a7ec] Agregando pre-dependencia al burg
+
+ -- Luis Alejandro Martínez Faneyth <martinez.faneyth@gmail.com>  Thu, 10 Feb 2011 00:49:45 -0430
+
 canaima-plymouth (1.0+9) stable; urgency=low
 
   * [9a80074] Removiendo update-burg, no tiene nada que ver con Plymouth
