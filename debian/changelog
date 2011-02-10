@@ -1,38 +1,14 @@
-canaima-plymouth (1.0+12) stable; urgency=low
+canaima-plymouth (1.0+13) stable; urgency=low
 
-  * [ac86f85] Removiendo hooks de update-burg, también pre-dependencias
+  * [1dd83d5] Devolviendo cambios
 
- -- Luis Alejandro Martínez Faneyth <martinez.faneyth@gmail.com>  Thu, 10 Feb 2011 03:37:24 -0430
-
-canaima-plymouth (1.0+11) stable; urgency=low
-
-  * [58eeacf] Corrigiendo bug con update-burg
-
- -- Luis Alejandro Martínez Faneyth <martinez.faneyth@gmail.com>  Thu, 10 Feb 2011 02:08:00 -0430
-
-canaima-plymouth (1.0+10) stable; urgency=low
-
-  * [453d758] Volviendo agregar el hook de update-grub y corrigiendo bug
-    con el plymouth-set-default-theme
-  * [1a2a7ec] Agregando pre-dependencia al burg
-
- -- Luis Alejandro Martínez Faneyth <martinez.faneyth@gmail.com>  Thu, 10 Feb 2011 00:49:45 -0430
-
-canaima-plymouth (1.0+9) stable; urgency=low
-
-  * [9a80074] Removiendo update-burg, no tiene nada que ver con Plymouth
-
- -- Luis Alejandro Martínez Faneyth <martinez.faneyth@gmail.com>  Thu, 10 Feb 2011 00:39:25 -0430
+ -- Luis Alejandro Martínez Faneyth <martinez.faneyth@gmail.com>  Thu, 10 Feb 2011 09:03:27 -0430
 
 canaima-plymouth (1.0+8) stable; urgency=low
 
-  * [a661039] Removiendo la sustitución del grub en los scripts del
-    mantenedor. Cambiando a BURG. Mejorando código en general.
-  * [0907294] Agregando pre-dependencia para el plymouth. Algunos
-    archivos ya deben estar puestos antes de ejecutar el postinst de
-    canaima-plymouth.
+  * [1dd83d5] Bump
 
- -- Luis Alejandro Martínez Faneyth <martinez.faneyth@gmail.com>  Wed, 09 Feb 2011 22:45:42 -0430
+ -- Luis Alejandro Martínez Faneyth <martinez.faneyth@gmail.com>  Thu, 10 Feb 2011 09:02:51 -0430
 
 canaima-plymouth (1.0+7) stable; urgency=low
 
