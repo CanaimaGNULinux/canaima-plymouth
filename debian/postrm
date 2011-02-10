@@ -41,11 +41,6 @@ case "$1" in
 	if [ -x $( which update-initramfs ) ]; then
 		update-initramfs -u
 	fi
-
-	if [ -x $( which update-burg ) ]; then
-		update-burg || true
-	fi
-
     ;;
 
     *)
