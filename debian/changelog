@@ -2,8 +2,9 @@ canaima-plymouth (1.0+14) stable; urgency=low
 
   * [d1d1f84] Adaptando postinst a BURG, removiendo archivo de
     configuración para GRUB
+  * [08a6ff6] Mejorando y corrigiendo el Makefile
 
- -- Luis Alejandro Martínez Faneyth <martinez.faneyth@gmail.com>  Wed, 09 Mar 2011 21:14:12 -0430
+ -- Luis Alejandro Martínez Faneyth <martinez.faneyth@gmail.com>  Wed, 09 Mar 2011 21:20:36 -0430
 
 canaima-plymouth (1.0+13) stable; urgency=low
 
