@@ -27,13 +27,6 @@ case "$1" in
 		echo FRAMEBUFFER=y | sudo tee /etc/initramfs-tools/conf.d/splash 
 	fi
 
-	# Copiar archivo /etc/default/grub en archivo de respaldo	
-	if [ -e /etc/default/grub ]; then
-		mv /etc/default/grub /etc/default/grub.bk	
-	fi
-	
-	# Copiar nuevo archivo /etc/default/grub
-	cp /usr/share/canaima-plymouth/grub /etc/default/grub
 	# Se establece como tema a canaima-plymouth.
 	grep -q '^[[]Daemon[]]' ${PLYMOUTH_CONFDIR}/plymouthd.conf 2> /null || echo '[Daemon]' >> ${PLYMOUTH_CONFDIR}/plymouthd.conf
 	sed -i -e '/^Theme[[:blank:]]*=.*/d' ${PLYMOUTH_CONFDIR}/plymouthd.conf
@@ -53,10 +46,10 @@ case "$1" in
 
 	fi
 
-	if which update-grub2 > /dev/null ; then
+	if which update-burg > /dev/null ; then
 	sync
 
-		update-grub2 || true
+		update-burg || true
 
 	fi
 
