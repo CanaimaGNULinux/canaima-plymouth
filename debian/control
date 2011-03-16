@@ -9,8 +9,8 @@ Vcs-Git: git://gitorious.org/canaima-gnu-linux/canaima-plymouth.git
 
 Package: canaima-plymouth
 Architecture: all
-Depends: pciutils, plymouth, ${shlibs:Depends}, ${misc:Depends}
-Pre-Depends: burg, burg-pc, burg-common, burg-themes
+Depends: canaima-base (>= 3.0), ${shlibs:Depends}, ${misc:Depends}
+Pre-Depends: burg, burg-pc, burg-common, burg-themes, plymouth
 Description: Tema Gráfico de Canaima para Plymouth
  Tema gráfico de Canaima GNU/Linux para mostrarse al 
  iniciar y apagar el equipo, basado en Plymouth.

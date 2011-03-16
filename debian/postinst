@@ -3,7 +3,7 @@
 #
 # see: dh_installdeb(1)
 
-PLYMOUTH_CONFDIR="/etc/plymouth/"
+PLYMOUTH_CONFDIR="/etc/plymouth"
 set -e
 
 case "$1" in
