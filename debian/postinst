@@ -30,7 +30,7 @@ case "$1" in
 	if lspci | grep VGA | grep -i '\<ati\>' 1>/dev/null
 	then 
 		echo "uvesafb mode_option=800x600 mtrr=3 scroll=ywrap" >> /etc/initramfs-tools/modules
-		echo FRAMEBUFFER=y | sudo tee /etc/initramfs-tools/conf.d/splash 
+		echo FRAMEBUFFER=y | tee /etc/initramfs-tools/conf.d/splash 
 	fi
 
 	# Se establece como tema a canaima-plymouth.
