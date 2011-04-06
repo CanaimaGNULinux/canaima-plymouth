@@ -10,7 +10,7 @@ case "$1" in
     configure)
 
 	if [ -e /etc/init.d/plymouth ]; then
-	sed -i 's/TEXT="Shutting down system..."/TEXT="Apagando el equipo... Recuerda: Ahorrar energía es salvar al planeta!"/g' /etc/init.d/plymouth
+	sed -i 's/TEXT="Shutting down system..."/TEXT="Apagando el equipo... Recuerda: ¡Ahorrar energía es salvar al planeta!"/g' /etc/init.d/plymouth
 	sed -i 's/TEXT="Restarting system..."/TEXT="Reiniciando el equipo..."/g' /etc/init.d/plymouth
 	fi
 
