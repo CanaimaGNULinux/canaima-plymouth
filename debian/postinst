@@ -47,11 +47,14 @@ case "$1" in
 		update-initramfs -u
 	fi
 
-	if which update-burg > /dev/null ; then
-	sync
-
+	if [ -x $( which update-burg ) ]; then
+		sync
 		update-burg || true
+	fi
 
+	if [ -x $( which update-grub ) ]; then
+		sync
+		update-grub || true
 	fi
 
     ;;

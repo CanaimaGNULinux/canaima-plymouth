@@ -37,10 +37,21 @@ case "$1" in
 		plymouth-set-default-theme canaima-plymouth || true
 	fi
 
-	# Se actualiza el archivo de inicializacion que se ejecuta al iniciar el equipo.
+        # Se actualiza el archivo de inicializacion que se ejecuta al iniciar el equipo.
 	if [ -x $( which update-initramfs ) ]; then
 		update-initramfs -u
 	fi
+
+	if [ -x $( which update-burg ) ]; then
+		sync
+		update-burg || true
+	fi
+
+	if [ -x $( which update-grub ) ]; then
+		sync
+		update-grub || true
+	fi
+
     ;;
 
     *)
