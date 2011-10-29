@@ -33,21 +33,21 @@ case "$1" in
         sed -i -e '/^Theme[[:blank:]]*=.*/d' ${PLYMOUTH_CONFDIR}/plymouthd.conf
         sed -i -e "s/^\([[]Daemon[]]\)\n*/\1\nTheme=fade-in/" ${PLYMOUTH_CONFDIR}/plymouthd.conf
 
-	if [ -x /usr/sbin/plymouth-set-default-theme ]; then
+	if [ -x $( which plymouth-set-default-theme ) ]; then
 		plymouth-set-default-theme canaima-plymouth || true
 	fi
 
         # Se actualiza el archivo de inicializacion que se ejecuta al iniciar el equipo.
-	if [ -x /usr/sbin/update-initramfs ]; then
+	if [ -x $( which update-initramfs ) ]; then
 		update-initramfs -u
 	fi
 
-	if which update-burg > /dev/null ; then
+	if [ -x $( which update-burg ) ]; then
 		sync
 		update-burg || true
 	fi
 
-	if which update-grub > /dev/null ; then
+	if [ -x $( which update-grub ) ]; then
 		sync
 		update-grub || true
 	fi
