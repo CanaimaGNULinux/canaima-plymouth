@@ -1,8 +1,12 @@
 /* For startup we want a light theme with a throbber */
 if ( Plymouth.GetMode () == "boot" )
   {
-    Window.SetBackgroundTopColor (0.313, 0.241, 0.036);
-    Window.SetBackgroundBottomColor (0.392, 0.249, 0.061);
+    imagen_image = Image("fondo-plymouth.png");
+    imagen_sprite = Sprite(imagen_image);
+    screen_width = Window.GetWidth();
+    screen_height = Window.GetHeight();
+    resized_imagen_image = imagen_image.Scale(screen_width, screen_height);
+    imagen_sprite.SetImage(resized_imagen_image);
 
     logo.image = Image("logo.png");
     logo.sprite = Sprite(logo.image);
