@@ -1,3 +1,9 @@
+canaima-plymouth (1.0+21) stable; urgency=low
+
+  * [24533d6] se cambio las imagenes y el fondo
+
+ -- Sasha Veronica Solano Grosjean <sashasolano@gmail.com>  Thu, 22 Dec 2011 12:56:19 -0430
+
 canaima-plymouth (1.0+20) stable; urgency=low
 
   * [3de0225] Mejorando postinstall y postremove.
