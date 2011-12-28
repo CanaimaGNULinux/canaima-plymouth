@@ -7,9 +7,9 @@ all: build
 build:
 
 	@echo "Convirtiendo SVG's > PNG's ..."
-	@convert img/logo-inicio.svg img/logo-inicio.png
-	@convert img/logo-fin.svg img/logo-fin.png
-	@convert img/fondo.svg img/fondo.png
+	@convert -background None img/logo-inicio.svg img/logo-inicio.png
+	@convert -background None img/logo-fin.svg img/logo-fin.png
+	@convert -background None img/fondo.svg img/fondo.png
 	@echo "Procesando animación de Blender ..."
 	@blender -b img/progress.blend -o //D -s 00 -e 40 -a
 
