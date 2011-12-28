@@ -1,15 +1,17 @@
 Source: canaima-plymouth
 Section: misc
-Priority: extra
-Maintainer: Carlos Guerrero <carlos@carlosguerrero.com>
-Build-Depends: cdbs, debhelper (>= 7.0.50~)
+Priority: optional
+Maintainer: Equipo de Desarrollo de Canaima GNU/Linux <desarrolladores@canaima.softwarelibre.gob.ve>
+Uploaders: Sasha Veronica Solano Grosjean <sashasolano@gmail.com>
+Build-Depends: debhelper (>= 7.0.50~), blender, imagemagick, libmagickcore-extra
 Standards-Version: 3.9.1
 Homepage: http://canaima.softwarelibre.gob.ve/
 Vcs-Git: git://gitorious.org/canaima-gnu-linux/canaima-plymouth.git
+Vcs-Browser: http://gitorious.org/canaima-gnu-linux/canaima-plymouth/trees/master
 
 Package: canaima-plymouth
 Architecture: all
-Depends: canaima-base (>= 3.0), ${shlibs:Depends}, ${misc:Depends}
+Depends: canaima-base (>= 3.1), ${shlibs:Depends}, ${misc:Depends}
 Pre-Depends: plymouth
 Description: Tema Gráfico de Canaima para Plymouth
  Tema gráfico de Canaima GNU/Linux para mostrarse al 
