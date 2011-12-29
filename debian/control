@@ -12,7 +12,7 @@ Vcs-Browser: http://gitorious.org/canaima-gnu-linux/canaima-plymouth/trees/maste
 Package: canaima-plymouth
 Architecture: all
 Depends: canaima-base (>= 3.1), ${shlibs:Depends}, ${misc:Depends}
-Pre-Depends: plymouth
+Pre-Depends: plymouth, pciutils
 Description: Tema Gráfico de Canaima para Plymouth
  Tema gráfico de Canaima GNU/Linux para mostrarse al 
  iniciar y apagar el equipo, basado en Plymouth.
