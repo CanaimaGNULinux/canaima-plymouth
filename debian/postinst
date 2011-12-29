@@ -86,21 +86,21 @@ case ${1} in
 	sed -i -e '/^Theme[[:blank:]]*=.*/d' ${PLYMOUTHCONF}
 	sed -i -e "s/^\([[]Daemon[]]\)\n*/\1\nTheme=canaima-plymouth/" ${PLYMOUTHCONF}
 
-	if [ -n $( which plymouth-set-default-theme ) ] && [ -x $( which plymouth-set-default-theme ) ]; then
+	if [ -n "$( which plymouth-set-default-theme )" ] && [ -x "$( which plymouth-set-default-theme )" ]; then
 		plymouth-set-default-theme canaima-plymouth || true
 	fi
 
 	# Se actualiza el archivo de inicializacion que se ejecuta al iniciar el equipo.
-	if [ -n $( which update-initramfs ) ] && [ -x $( which update-initramfs ) ]; then
+	if [ -n "$( which update-initramfs )" ] && [ -x "$( which update-initramfs )" ]; then
 		update-initramfs -u
 	fi
 
-	if [ -n $( which update-burg ) ] && [ -x $( which update-burg ) ]; then
+	if [ -n "$( which update-burg )" ] && [ -x "$( which update-burg )" ]; then
 		sync
 		update-burg || true
 	fi
 
-	if [ -n $( which update-grub ) ] && [ -x $( which update-grub ) ]; then
+	if [ -n "$( which update-grub )" ] && [ -x "$( which update-grub )" ]; then
 		sync
 		update-grub || true
 	fi
