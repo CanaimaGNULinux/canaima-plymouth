@@ -1,3 +1,9 @@
+canaima-plymouth (2.0-4) stable; urgency=low
+
+  * [4f9f1f9] Corrigiendo postinstall
+
+ -- Luis Alejandro Martínez Faneyth <martinez.faneyth@gmail.com>  Thu, 29 Dec 2011 12:37:19 -0430
+
 canaima-plymouth (2.0-3) stable; urgency=low
 
   * [e85ae1b] Agregando background None a Makefile para permitir
