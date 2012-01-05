@@ -1,3 +1,9 @@
+canaima-plymouth (2.0-5) stable; urgency=low
+
+  * [e532612] se cambio el estoilo visual
+
+ -- Sasha Veronica Solano Grosjean <sashasolano@gmail.com>  Thu, 05 Jan 2012 13:48:34 -0430
+
 canaima-plymouth (2.0-4) stable; urgency=low
 
   * [4f9f1f9] Corrigiendo postinstall
