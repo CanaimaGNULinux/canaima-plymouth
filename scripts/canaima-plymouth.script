@@ -7,7 +7,9 @@ if ( Plymouth.GetMode () == "boot" )
     screen_height = Window.GetHeight();
     resized_imagen_image = imagen_image.Scale(screen_width, screen_height);
     imagen_sprite.SetImage(resized_imagen_image);
-
+    
+    Window.SetBackgroundTopColor (0.30, 0.30, 0.30);
+    Window.SetBackgroundBottomColor (0.40, 0.40, 0.40);
     logo.image = Image("logo-inicio.png");
     logo.sprite = Sprite(logo.image);
     logo.sprite.SetX (Window.GetWidth()  / 2 - logo.image.GetWidth()  / 2);
