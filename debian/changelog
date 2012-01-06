@@ -1,3 +1,9 @@
+canaima-plymouth (2.0-6) stable; urgency=low
+
+  * [2e126a7] se modifico el archivo .blender
+
+ -- Sasha Veronica Solano Grosjean <sashasolano@gmail.com>  Fri, 06 Jan 2012 14:44:13 -0430
+
 canaima-plymouth (2.0-5) stable; urgency=low
 
   * [e532612] se cambio el estoilo visual
