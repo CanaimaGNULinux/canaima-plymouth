@@ -3,6 +3,8 @@ if ( Plymouth.GetMode () == "boot" )
   {
     imagen_image = Image("fondo.png");
     imagen_sprite = Sprite(imagen_image);
+    imagen_image.SetX (Window.GetWidth()  / 2 - imagen_image.GetWidth()  / 2);
+    imagen_image.SetY (Window.GetHeight() / 2 - imagen_image.GetHeight() / 2);
     screen_width = Window.GetWidth();
     screen_height = Window.GetHeight();
     resized_imagen_image = imagen_image.Scale(screen_width, screen_height);
