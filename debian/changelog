@@ -1,3 +1,17 @@
+canaima-plymouth (2.0-7) stable; urgency=low
+
+  [ Sasha Veronica Solano Grosjean ]
+  * [efd1eee] arreglando logo de canaima y fondo
+
+  [ root ]
+  * [5ebec61] Mejorando fondo, animación y logo.
+
+  [ Sasha Veronica Solano Grosjean ]
+  * [99c2de0] cambiando imagen
+  * [30b6031] cambiando la imagen
+
+ -- Sasha Veronica Solano Grosjean <sashasolano@gmail.com>  Mon, 18 Jun 2012 09:02:23 -0430
+
 canaima-plymouth (2.0-6) stable; urgency=low
 
   * [2e126a7] se modifico el archivo .blender
