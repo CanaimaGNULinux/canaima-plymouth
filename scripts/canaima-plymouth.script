@@ -1,101 +1,40 @@
-/* For startup we want a light theme with a throbber */
-if ( Plymouth.GetMode () == "boot" )
-  {
-    imagen_image = Image("fondo.png");
-    imagen_sprite = Sprite(imagen_image);
-    imagen_image.SetX (Window.GetWidth()  / 2 - imagen_image.GetWidth()  / 2);
-    imagen_image.SetY (Window.GetHeight() / 2 - imagen_image.GetHeight() / 2);
-    screen_width = Window.GetWidth();
-    screen_height = Window.GetHeight();
-    resized_imagen_image = imagen_image.Scale(screen_width, screen_height);
-    imagen_sprite.SetImage(resized_imagen_image);
-    
-    Window.SetBackgroundTopColor (0.30, 0.30, 0.30);
-    Window.SetBackgroundBottomColor (0.40, 0.40, 0.40);
-    logo.image = Image("logo-inicio.png");
-    logo.sprite = Sprite(logo.image);
-    logo.sprite.SetX (Window.GetWidth()  / 2 - logo.image.GetWidth()  / 2);
-    logo.sprite.SetY (Window.GetHeight() / 2 - logo.image.GetHeight() / 2);
-    logo.sprite.SetZ (10000);
-    progress = 1;
-
-
-    progress_box.image = Image("D000" + progress + ".png");
-    progress_box.sprite = Sprite();
-    progress_box.x = Window.GetWidth() / 2 - progress_box.image.GetWidth()  / 2;
-    progress_box.y = Window.GetHeight() / 2 - progress_box.image.GetHeight() / 2;
-    progress_box.sprite.SetPosition(progress_box.x, progress_box.y, 0);
-    progress_box.sprite.SetImage(progress_box.image);
-  }
-/* In every other case we just want a black background with a pulsing logo */
-else
-  {
-    Window.SetBackgroundTopColor (0, 0, 0);
-    Window.SetBackgroundBottomColor (0, 0, 0);
-
-    logo.image = Image("logo-fin.png");
-    logo.sprite = Sprite(logo.image);
-    logo.opacity_angle = 0;
+for (i=0; i<10; i++){
+  spec[i].image = Image("spec" + (i % 3) + ".png");
+  spec[i].sprite = Sprite(spec[i].image);
+  spec[i].sprite.SetOpacity (0.0);
   }
 
-/* This function gets called continuosly by Plymouth, up to 50 times a second */
-fun refresh ()
-  {
-    /* Again at startup we want a throbber */
-    mode = Plymouth.GetMode ();
-    if (status == "normal" && mode == "boot" )
-      {
-        progress++;
+logo.image = Image("logo.png");
+logo.sprite = Sprite(logo.image);
+logo.sprite.SetX (Window.GetWidth()  / 2 - logo.image.GetWidth()  / 2);
+logo.sprite.SetY (Window.GetHeight() / 2 - logo.image.GetHeight() / 2);
+logo.sprite.SetOpacity (0.0);
+logo.sprite.SetZ (10000);
+progress = 0.0;
 
-    	if(progress>=0&&progress<=9){
-	cadena="000";}
-
-    	if(progress>=10&&progress<=99){
-		cadena="00";
-	}
-	if(progress>=100&&progress<=999){
-		cadena="0";
-	}
-	
-
-
-
-        if (progress >= 39)
-          progress = 0;
-
-        new_progress_box.image = Image("D"+cadena+ progress + ".png");
-        progress_box.sprite.SetImage(new_progress_box.image);
-        progress_box.sprite.SetOpacity(1);
+fun refresh (){
+  inc = progress;
+  
+  logo.sprite.SetOpacity (MathClamp((inc-0.7)/0.2, 0, 1));
+  
+  if (inc<0.8){
+    for (i=0; i<10; i++){
+      spec[i].sprite.SetX (Window.GetWidth()  / 2 - spec[i].image.GetWidth()  / 2 + Math.Sin(i*i+(inc*100+i*17)/10) * (0.8-inc)*Window.GetWidth()*0.3);
+      spec[i].sprite.SetY (Window.GetHeight() / 2 - spec[i].image.GetHeight() / 2 + Math.Cos(i*i+(inc*100+i*5)/7) * (0.8-inc)*Window.GetHeight()*0.3);
+      spec[i].sprite.SetZ (0);
+      spec[i].sprite.SetOpacity (inc/0.8);
       }
-    /* If we're in startup mode but status is not "normal" it probably means that 
-     * some event is taking place, possibly a request for password, or maybe 
-     * something failed, in any case we should just hide our throbber */
-    else if (status != "normal" && mode == "boot" )
-      {
-        progress_box.sprite.SetOpacity(0);
-      }
-    /* If we've gotten here it means the system is shutting down, restarting,
-     * suspending, resuming from suspend or we just don't know wtf's going on. :-D
-     *
-     * In any mode other than startup we just want to display a light pulsing logo
-     * on a dark background not only to differentiate it from startup but also to 
-     * allow the user to read any messages printed by Plymouth */
-    else
-      {
-        logo.opacity_angle += ((2 * 3.14) / 50) * 0.5;  # 0.5 HZ
-        min_opacity = 0.3;
-        opacity = (Math.Cos(logo.opacity_angle) + 1) / 2;
-        opacity *= 1 - min_opacity;
-        opacity += min_opacity;
-        logo.sprite.SetX (Window.GetWidth()  / 2 - logo.image.GetWidth()  / 2);
-        logo.sprite.SetY (Window.GetHeight() / 2 - logo.image.GetHeight() / 2);
-        logo.sprite.SetOpacity (opacity);
-      }
+    }
+  else {
+    for (i=0; i<10; i++)
+      spec[i].sprite.SetOpacity (Math.Clamp((0.9-inc)/0.1, 0, 1));
+    }
+  
   }
 
 Plymouth.SetRefreshFunction (refresh);
 
-/*                                   Dialogue                                  */
+#----------------------------------------- Dialogue --------------------------------
 
 status = "normal";
 
@@ -156,9 +95,9 @@ fun display_password_callback (prompt, bullets)
   {
     global.status = "password";
     if (!global.dialog)
-    dialog_setup();
+	dialog_setup();
     else
-    dialog_opacity(1);
+	dialog_opacity(1);
     for (index = 0; dialog.bullet[index] || index < bullets; index++)
       {
         if (!dialog.bullet[index])
@@ -179,7 +118,36 @@ fun display_password_callback (prompt, bullets)
 Plymouth.SetDisplayNormalFunction(display_normal_callback);
 Plymouth.SetDisplayPasswordFunction(display_password_callback);
 
-/*                                       Quit                                    */
+#----------------------------------------- Progress Bar --------------------------------
+
+progress_box.image = Image("progress_box.png");
+progress_box.sprite = Sprite(progress_box.image);
+
+progress_box.x = Window.GetWidth()  / 2 -    progress_box.image.GetWidth()  / 2;
+progress_box.y = Window.GetHeight() * 0.75 - progress_box.image.GetHeight() / 2;
+progress_box.sprite.SetPosition(progress_box.x, progress_box.y, 0);
+
+progress_bar.original_image = Image("progress_bar.png");
+progress_bar.sprite = Sprite();
+
+progress_bar.x = Window.GetWidth()  / 2 -        progress_bar.original_image.GetWidth() / 2;
+progress_bar.y = Window.GetHeight() / 2 * 1.5  - progress_box.image.GetHeight() / 2 + (progress_box.image.GetHeight() - progress_bar.original_image.GetHeight()) / 2;
+progress_bar.sprite.SetPosition(progress_bar.x, progress_bar.y, 1);
+
+fun progress_callback (duration, progress)
+  {
+    progress = (progress * 100) / 27.0;
+    global.progress = progress;
+    if (progress_bar.image.GetWidth () != Math.Int (progress_bar.original_image.GetWidth () * progress))
+      {
+        progress_bar.image = progress_bar.original_image.Scale(progress_bar.original_image.GetWidth(progress_bar.original_image) * progress, progress_bar.original_image.GetHeight());
+        progress_bar.sprite.SetImage (progress_bar.image);
+      }
+  }
+
+Plymouth.SetBootProgressFunction(progress_callback);
+
+#----------------------------------------- Quit --------------------------------
 
 fun quit_callback ()
 {
@@ -188,7 +156,7 @@ fun quit_callback ()
 
 Plymouth.SetQuitFunction(quit_callback);
 
-/*                                     Message                                   */
+#----------------------------------------- Message --------------------------------
 
 message_sprite = Sprite();
 message_sprite.SetPosition(10, 10, 10000);
@@ -200,4 +168,3 @@ fun message_callback (text)
 }
 
 Plymouth.SetMessageFunction(message_callback);
-
