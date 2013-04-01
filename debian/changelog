@@ -1,3 +1,9 @@
+canaima-plymouth (2.0-9) stable; urgency=low
+
+  * [36c39c5] nueva version para 4.0
+
+ -- Sasha Veronica Solano Grosjean <sashasolano@gmail.com>  Mon, 01 Apr 2013 13:36:29 -0430
+
 canaima-plymouth (2.0-8) stable; urgency=low
 
   * [635715b] nueva version para 4.0
