@@ -7,12 +7,11 @@ all: build
 build:
 
 	@echo "Convirtiendo SVG's > PNG's ..."
-	@convert -background None img/spec0.svg img/spec0.png
-	@convert -background None img/spec1.svg img/spec1.png
-	@convert -background None img/spec2.svg img/spec2.png
-        @convert -background None img/logo.svg img/logo.png
-	#@echo "Procesando animación de Blender ..."
-	#@blender -b img/progress.blend -o //D -s 00 -e 40 -a
+	@convert -background None img/logo-inicio.svg img/logo-inicio.png
+	@convert -background None img/logo-fin.svg img/logo-fin.png
+	@convert -background None img/fondo.svg img/fondo.png
+	@echo "Procesando animación de Blender ..."
+	@blender -b img/progress.blend -o //D -s 00 -e 40 -a
 
 install:
 
@@ -25,9 +24,9 @@ uninstall:
 
 clean:
 
-	rm -rf img/spec*.png
+	rm -rf img/D00*.png
 	rm -rf img/logo*.png
-	
+	rm -rf img/fondo.png
 
 distclean:
 
