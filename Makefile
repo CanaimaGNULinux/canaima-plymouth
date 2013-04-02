@@ -11,8 +11,6 @@ build:
 	@convert -background None img/spec1.svg img/spec1.png
 	@convert -background None img/spec2.svg img/spec2.png
         @convert -background None img/logo.svg img/logo.png
-	#@echo "Procesando animación de Blender ..."
-	#@blender -b img/progress.blend -o //D -s 00 -e 40 -a
 
 install:
 
